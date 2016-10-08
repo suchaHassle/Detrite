@@ -37,7 +37,7 @@ def processRequest(req):
         return {}
     yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
     result = urllib.urlopen(yql_url).read()
-    result = urllib.urlopen("https://jsonplaceholder.typicode.com/photos/1");
+    # result = urllib.urlopen("https://jsonplaceholder.typicode.com/photos/1");
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
@@ -80,7 +80,7 @@ def makeWebhookResult(data):
 
     speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
              ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-    speech = "literally troll"
+    # speech = "literally troll"
     print("Response:")
     print(speech)
 
