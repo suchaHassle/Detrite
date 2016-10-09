@@ -56,14 +56,7 @@ def processRequest(req):
         result = urllib.urlopen(bus_url).read()
         datum = json.loads(result)
         res = makeWebhookResultBus(datum)
-        return {
-        "speech": "TESTbus",
-        "displayText": "testbus",
-        # "data": data,
-        # "contextOut": [],
-        "source": "MH8-Hackbot"
-        }
-        # return res
+        return res
 
 def makeWebhookResultBus(datum):
     currentTime = datum.get("currentTime")
@@ -114,7 +107,7 @@ def makeWebhookResultBus(datum):
 
     return {
         "speech": speech,
-        "displayText": "for the love of god",
+        "displayText": speech,
         # "data": data,
         # "contextOut": [],
         "source": "MH8-Hackbot"
