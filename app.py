@@ -49,14 +49,14 @@ def processRequest(req):
         # "contextOut": [],
         "source": "MH8-Hackbot"
         }
-        baseurl = "https://query.yahooapis.com/v1/public/yql?"
-        yql_query = makeYqlQuery(req)
-        if yql_query is None:
-            return {}
-        yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
-        result = urllib.urlopen(yql_url).read()
-        data = json.loads(result)
-        res = makeWebhookResultWeather(data)
+        # baseurl = "https://query.yahooapis.com/v1/public/yql?"
+        # yql_query = makeYqlQuery(req)
+        # if yql_query is None:
+        #     return {}
+        # yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
+        # result = urllib.urlopen(yql_url).read()
+        # data = json.loads(result)
+        # res = makeWebhookResultWeather(data)
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
         return {
@@ -66,13 +66,13 @@ def processRequest(req):
         # "contextOut": [],
         "source": "MH8-Hackbot"
         }
-        baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
-        apiKey = ".json?key=MHACKS8"
-        bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
-        result = urllib.urlopen(bus_url).read()
-        data = json.loads(result)
-        res = makeWebhookResultBus(datum)
-        return res
+        # baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
+        # apiKey = ".json?key=MHACKS8"
+        # bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
+        # result = urllib.urlopen(bus_url).read()
+        # data = json.loads(result)
+        # res = makeWebhookResultBus(datum)
+        # return res
 
 def makeWebhookResultBus(datum):
     data = datum.get('data')
