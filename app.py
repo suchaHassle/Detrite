@@ -90,26 +90,16 @@ def makeWebhookResultBus(datum):
     print ("---------------------------rrrrrrrrrrrrre")
     stopRouteDirectionSchedules = stopRouteSchedules[0]['stopRouteDirectionSchedules']
     print ("--------------FIRST BREAK POINT---------------")
-    #print (stopRouteDirectionSchedules)
     scheduleStopTimes = stopRouteDirectionSchedules[0]['scheduleStopTimes']
     print ("--------------BREAK POINT 1.5-----------------")
     serviceId = scheduleStopTimes[0]["serviceId"]
     print ("-------------SECOND BREAK POINT----------------")
-    # if scheduleStopTimes is None:
-    #     return{}
-    #
-    # serviceId = scheduleStopTimes[0].get('serviceId')
-    # if serviceId is None:
-    #     return{}
-    #
-    # arrivalTime = scheduleStopTimes[0].get('arrivalTime')
-    # if arrivalTime is None:
-    #     return{}
-    # newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
+    arrivalTime = scheduleStopTimes[0]["arrivalTime"]
+    newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
     # print(json.dumps(serviceId, indent=4))
     #
-    # speech = "Next bus is " + serviceId + " and it arrives at " + newtime
-    speech = serviceId
+    speech = "Next bus is " + serviceId + " and it arrives at " + newtime
+    # speech = serviceId
     return {
         "speech": speech,
         "displayText": speech,
