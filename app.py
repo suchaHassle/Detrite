@@ -43,13 +43,19 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "3",
+        "speech": "4",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
         "source": "MH8-Hackbot"
         }
     elif req.get("result").get("action") == "busRoutes":
+        baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
+        apiKey = ".json?key=MHACKS8"
+        bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
+        result = urllib.urlopen(bus_url).read()
+        data = json.loads(result)
+        res = makeWebhookResultBus(datum)
         return {
         "speech": "TESTbus",
         "displayText": "testbus",
@@ -57,12 +63,6 @@ def processRequest(req):
         # "contextOut": [],
         "source": "MH8-Hackbot"
         }
-        baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
-        apiKey = ".json?key=MHACKS8"
-        bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
-        result = urllib.urlopen(bus_url).read()
-        data = json.loads(result)
-        res = makeWebhookResultBus(datum)
         # return res
 
 def makeWebhookResultBus(datum):
