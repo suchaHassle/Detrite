@@ -44,16 +44,16 @@ def processRequest(req):
         return res
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
+        return {
+        "speech": "test",
+        "displayText": "test",
+        # "data": data,
+        # "contextOut": [],
+        "source": "MH8-Hackbot"
+        }
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
         apiKey = ".json?key=MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
-        return {
-            "speech": "test",
-            "displayText": "test",
-            # "data": data,
-            # "contextOut": [],
-            "source": "MH8-Hackbot"
-        }
         result = urllib.urlopen(bus_url).read()
         data = json.loads(result)
         res = makeWebhookResultBus(data)
