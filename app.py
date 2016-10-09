@@ -42,6 +42,13 @@ def processRequest(req):
         res = makeWebhookResultWeather(data)
         return res
     elif req.get("result").get("action") == "test1":
+        return {
+        "speech": "TEST",
+        "displayText": "test",
+        # "data": data,
+        # "contextOut": [],
+        "source": "MH8-Hackbot"
+        }
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
         yql_query = makeYqlQuery(req)
         if yql_query is None:
@@ -50,13 +57,6 @@ def processRequest(req):
         result = urllib.urlopen(yql_url).read()
         data = json.loads(result)
         res = makeWebhookResultWeather(data)
-        return {
-            "speech": "TEST",
-            "displayText": "test",
-            # "data": data,
-            # "contextOut": [],
-            "source": "MH8-Hackbot"
-        }
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
