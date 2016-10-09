@@ -140,8 +140,8 @@ def makeWebhookResultWeather(data):
     print(speech)
 
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": "Test",
+        "displayText": "Test",
         # "data": data,
         # "contextOut": [],
         "source": "MH8-Hackbot"
