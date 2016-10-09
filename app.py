@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "5",
+        "speech": "1",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -83,36 +83,33 @@ def makeWebhookResultBus(datum):
     if name is None:
         return {}
 
-    entry = data.get('entry')
-    if entry is None:
-        return {}
-
-    stopRouteSchedules = entry.get('stopRouteSchedules')
-    if stopRouteSchedules is None:
-        return{}
-
-    stopRouteDirectionSchedules = stopRouteSchedules.get('stopRouteDirectionSchedules')
-    if stopRouteDirectionSchedules is None:
-        return{}
-
-    scheduleStopTimes = stopRouteDirectionSchedules.get('scheduleStopTimes')
-    if scheduleStopTimes is None:
-        return{}
-
-    serviceId = scheduleStopTimes.get('serviceId')
-    if serviceId is None:
-        return{}
-
-    arrivalTime = scheduleStopTimes.get('arrivalTime')
-    if arrivalTime is None:
-        return{}
+    # entry = data.get('entry')
+    # if entry is None:
+    #     return {}
+    #
+    # stopRouteSchedules = entry.get('stopRouteSchedules')
+    # if stopRouteSchedules is None:
+    #     return{}
+    #
+    # stopRouteDirectionSchedules = stopRouteSchedules.get('stopRouteDirectionSchedules')
+    # if stopRouteDirectionSchedules is None:
+    #     return{}
+    #
+    # scheduleStopTimes = stopRouteDirectionSchedules.get('scheduleStopTimes')
+    # if scheduleStopTimes is None:
+    #     return{}
+    #
+    # serviceId = scheduleStopTimes.get('serviceId')
+    # if serviceId is None:
+    #     return{}
+    #
+    # arrivalTime = scheduleStopTimes.get('arrivalTime')
+    # if arrivalTime is None:
+    #     return{}
     #newTime = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(arrivalTime))
     # print(json.dumps(item, indent=4))
 
-    speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at "# + newtime
-    # speech = "literally troll"
-    print("Response:")
-    print(speech)
+    speech = "Bus stop: " + name #+ ". Next bus is " + serviceId + " and it arrives at "# + newtime
 
     return {
         "speech": speech,
