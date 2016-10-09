@@ -71,7 +71,7 @@ def makeWebhookResultBus(datum):
     if stops is None:
         return {}
 
-     name = stops[0]["name"]
+    name = json.loads(stops[0])["name"]
     if name is None:
         return {}
 
