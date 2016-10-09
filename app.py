@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "3",
+        "speech": "1",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -66,8 +66,8 @@ def processRequest(req):
         # return res
 
 def makeWebhookResultBus(datum):
-    currentTime = datum.get("currentTime")
-    speech = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(currentTime))
+    # currentTime = datum.get("currentTime")
+    # speech = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(currentTime))
     # data = datum.get("data")
     # if data is None:
     #     return {}
@@ -113,8 +113,8 @@ def makeWebhookResultBus(datum):
     # speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
 
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": "please work",
+        "displayText": "for the love of god",
         # "data": data,
         # "contextOut": [],
         "source": "ddot-beta"
