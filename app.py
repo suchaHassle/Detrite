@@ -66,14 +66,15 @@ def makeWebhookResultBus(datum):
     references = data.get("references")
     if references is None:
         return {}
-
+    print (references)
     stops = json.loads("stops")
     if stops is None:
         return {}
-
+    print (stops)
     name = json.loads(stops[0])["name"]
     if name is None:
         return {}
+    print (name)
 
     # entry = data.get('entry')
     # if entry is None:
@@ -104,7 +105,7 @@ def makeWebhookResultBus(datum):
     # speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
 
     return {
-        "speech": stops,
+        "speech": name,
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
