@@ -1,0 +1,41 @@
+{
+  "id": "a31d7d69-a5de-451e-8184-138c5c4b7d80",
+  "name": "direction",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "north",
+      "synonyms": [
+        "north",
+        "n",
+        "northwards"
+      ]
+    },
+    {
+      "value": "east",
+      "synonyms": [
+        "east",
+        "e",
+        "eastwards"
+      ]
+    },
+    {
+      "value": "south",
+      "synonyms": [
+        "south",
+        "s",
+        "southwards"
+      ]
+    },
+    {
+      "value": "west",
+      "synonyms": [
+        "west",
+        "w",
+        "westward"
+      ]
+    }
+  ],
+  "isEnum": false,
+  "automatedExpansion": true
+}

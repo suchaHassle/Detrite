@@ -1,0 +1,108 @@
+{
+  "id": "6affdb00-fde2-4924-a73d-0ef4ab15f653",
+  "name": "Stop-id",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "id": "4a4abc56-5b41-4c42-8854-6ab9957a8a6f",
+      "data": [
+        {
+          "text": "stop @sys.number-integer:stop-id"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    },
+    {
+      "id": "645a64f0-b818-4849-a846-82f7518b8c6c",
+      "data": [
+        {
+          "text": "When\u0027"
+        },
+        {
+          "text": "s",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        },
+        {
+          "text": " my bus coming?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "eb0a026d-39f4-4206-a869-45c858133628",
+      "data": [
+        {
+          "text": "stop-id @sys.number-integer:stop-id"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    },
+    {
+      "id": "c77e7275-e402-4569-9218-101b5a28343c",
+      "data": [
+        {
+          "text": "When\u0027s the bus arriving?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "ee3ca1d9-3e8d-4f75-94d5-309afc8c9e6d",
+      "data": [
+        {
+          "text": "Is the bus here?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "11c625e0-7e8c-4143-8868-dff625e670dc",
+      "data": [
+        {
+          "text": "I\u0027m at @sys.number-integer:stop-id"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    },
+    {
+      "id": "a5f6cc1b-0b54-4b70-8f63-669fb894330f",
+      "data": [
+        {
+          "text": "My stop ID is @sys.number-integer:stop-id"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "busRoutes",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "name": "stop-id",
+          "prompts": [
+            "I need your stop ID, it should say somewhere on the stop pole.",
+            "What\u0027s the stop ID? Probably will be on the stop pole"
+          ]
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "fallbackIntent": false
+}
