@@ -1,0 +1,50 @@
+{
+  "id": "b56673b3-9858-4c28-b9dc-1ddb6d0a8b42",
+  "name": "Weather",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "id": "b82becea-62dd-42c1-8d9f-7507962604bc",
+      "data": [
+        {
+          "text": "weather"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "205a0c03-fe1c-4c98-8369-495078b2d35c",
+      "data": [
+        {
+          "text": "What\u0027s the weather at @sys.geo-city:geo-city"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "yahooWeatherForecast",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "name": "geo-city",
+          "value": "$geo-city",
+          "prompts": [
+            "In what city?"
+          ]
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "fallbackIntent": false
+}
