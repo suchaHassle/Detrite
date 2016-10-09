@@ -54,8 +54,8 @@ def processRequest(req):
         apiKey = ".json?key=MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
         result = urllib.urlopen(bus_url).read()
-        data = json.loads(result)
-        # res = makeWebhookResultBus(datum)
+        datum = json.loads(result)
+        res = makeWebhookResultBus(datum)
         return {
         "speech": "TESTbus",
         "displayText": "testbus",
@@ -66,8 +66,8 @@ def processRequest(req):
         # return res
 
 def makeWebhookResultBus(datum):
-    # currentTime = datum.get("currentTime")
-    # speech = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(currentTime))
+    currentTime = datum.get("currentTime")
+    speech = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(currentTime))
     # data = datum.get("data")
     # if data is None:
     #     return {}
@@ -113,7 +113,7 @@ def makeWebhookResultBus(datum):
     # speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
 
     return {
-        "speech": "please work",
+        "speech": speech,
         "displayText": "for the love of god",
         # "data": data,
         # "contextOut": [],
