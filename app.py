@@ -63,51 +63,52 @@ def makeWebhookResultBus(datum):
     if data is None:
         return {}
 
-    references = data.get("references")
-    if references is None:
-        return {}
-    stops = json.loads("stops")
-    if stops is None:
-        return {}
-    print ("stops")
-    printt (json.dumps(stops, indent=4))
-
-    name = json.loads(stops[0])["name"]
-    if name is None:
-        return {}
-    print ("Name: ")
-    print (name)
-
-    # entry = data.get('entry')
-    # if entry is None:
+    # references = data.get("references")
+    # if references is None:
     #     return {}
     #
-    # stopRouteSchedules = entry.get('stopRouteSchedules')
-    # if stopRouteSchedules is None:
-    #     return{}
+    # stops = json.loads("stops")
+    # if stops is None:
+    #     return {}
+    # print ("stops")
+    # printt (json.dumps(stops, indent=4))
     #
-    # stopRouteDirectionSchedules = stopRouteSchedules.get('stopRouteDirectionSchedules')
-    # if stopRouteDirectionSchedules is None:
-    #     return{}
-    #
-    # scheduleStopTimes = stopRouteDirectionSchedules.get('scheduleStopTimes')
-    # if scheduleStopTimes is None:
-    #     return{}
-    #
-    # serviceId = scheduleStopTimes.get('serviceId')
-    # if serviceId is None:
-    #     return{}
-    #
-    # arrivalTime = scheduleStopTimes.get('arrivalTime')
-    # if arrivalTime is None:
-    #     return{}
-    #newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
-    # print(json.dumps(item, indent=4))
+    # name = json.loads(stops[0])["name"]
+    # if name is None:
+    #     return {}
+    # print ("Name: ")
+    # print (name)
 
-    # speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
+    entry = data.get('entry')
+    if entry is None:
+        return {}
+
+    stopRouteSchedules = entry.get('stopRouteSchedules')
+    if stopRouteSchedules is None:
+        return{}
+
+    stopRouteDirectionSchedules = stopRouteSchedules.get('stopRouteDirectionSchedules')
+    if stopRouteDirectionSchedules is None:
+        return{}
+
+    scheduleStopTimes = stopRouteDirectionSchedules.get('scheduleStopTimes')
+    if scheduleStopTimes is None:
+        return{}
+
+    serviceId = scheduleStopTimes[0].get('serviceId')
+    if serviceId is None:
+        return{}
+
+    arrivalTime = scheduleStopTimes[0].get('arrivalTime')
+    if arrivalTime is None:
+        return{}
+    newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
+    print(json.dumps(serviceId, indent=4))
+
+    speech = "Next bus is " + serviceId + " and it arrives at " + newtime
 
     return {
-        "speech": name,
+        "speech": speech,
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
