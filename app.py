@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "1",
+        "speech": "2",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -67,7 +67,7 @@ def makeWebhookResultBus(datum):
     if references is None:
         return {}
 
-    stops = references.get("stops")
+    stops[] = references.get("stops")
     if stops is None:
         return {}
 
