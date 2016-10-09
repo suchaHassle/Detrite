@@ -58,6 +58,14 @@ def processRequest(req):
         data = json.loads(result)
         res = makeWebhookResultBus(data)
         return res
+    else
+        return {
+            "speech": "Please ask for the weather or a bus stop id only!",
+            "displayText": "Please ask for the weather or a bus stop id only!",
+            # "data": data,
+            # "contextOut": [],
+            "source": "MH8-Hackbot"
+        }
 
 def makeWebhooResultsBus(datum):
     data = datum.get('data')
