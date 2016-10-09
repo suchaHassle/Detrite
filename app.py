@@ -43,6 +43,13 @@ def processRequest(req):
         res = makeWebhookResultWeather(data)
         return res
     ####### DETROIT BUS API HANDLING
+    return {
+    "speech": "test",
+    "displayText": "test",
+    # "data": data,
+    # "contextOut": [],
+    "source": "MH8-Hackbot"
+    }
     elif req.get("result").get("action") == "busRoutes":
         return {
         "speech": "test",
@@ -67,7 +74,7 @@ def processRequest(req):
             "source": "MH8-Hackbot"
         }
 
-def makeWebhooResultsBus(datum):
+def makeWebhookResultBus(datum):
     data = datum.get('data')
     if data is None:
         return {}
