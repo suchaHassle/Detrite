@@ -48,11 +48,11 @@ def processRequest(req):
         apiKey = "MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("bus-id") + apiKey
         return {
-            "speech": bus_url,
-            "displayText": bus_url,
+            "speech": "test",
+            "displayText": "test",
             # "data": data,
             # "contextOut": [],
-            "source": "apiai-weather-webhook-sample"
+            "source": "MH8-Hackbot"
         }
         result = urllib.urlopen(bus_url).read()
         data = json.loads(result)
@@ -151,7 +151,7 @@ def makeWebhookResultWeather(data):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "MH8-Hackbot"
     }
 
 
