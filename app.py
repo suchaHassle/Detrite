@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "2",
+        "speech": "3",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -62,7 +62,7 @@ def processRequest(req):
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
         result = urllib.urlopen(bus_url).read()
         data = json.loads(result)
-        # res = makeWebhookResultBus(datum)
+        res = makeWebhookResultBus(datum)
         # return res
 
 def makeWebhookResultBus(datum):
