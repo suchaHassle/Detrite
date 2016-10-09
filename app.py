@@ -43,8 +43,8 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "asdf",
-        "displayText": "1",
+        "speech": "2",
+        "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
         "source": "MH8-Hackbot"
@@ -61,7 +61,7 @@ def processRequest(req):
         apiKey = ".json?key=MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
         result = urllib.urlopen(bus_url).read()
-        # data = json.loads(result)
+        data = json.loads(result)
         # res = makeWebhookResultBus(datum)
         # return res
 
