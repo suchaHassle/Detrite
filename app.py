@@ -74,6 +74,7 @@ def makeWebhookResultBus(datum):
     if references is None:
         return {}
 
+
     stops = references.get('stops')
     if stops is None:
         return {}
@@ -82,7 +83,19 @@ def makeWebhookResultBus(datum):
     if name is None:
         return {}
 
-    scheduleStopTimes = data.get('scheduleStopTimes')
+    entry = data.get('entry')
+    if entry is None:
+        return {}
+
+    stopRouteSchedules = entry.get('stopRouteSchedules')
+    if stopRouteSchedules is None:
+        return{}
+
+    stopRouteDirectionSchedules = stopRouteSchedules.get('stopRouteDirectionSchedules')
+    if stopRouteDirectionSchedules is None:
+        return{}
+
+    scheduleStopTimes = stopRouteDirectionSchedules.get('scheduleStopTimes')
     if scheduleStopTimes is None:
         return{}
 
