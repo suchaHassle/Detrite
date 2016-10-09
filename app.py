@@ -64,21 +64,19 @@ def makeWebhookResultBus(datum):
     if data is None:
         return {}
     print ("-----------------------------2--------------")
-    # references = data.get("references")
-    # if references is None:
-    #     return {}
-    #
-    # stops = json.loads("stops")
-    # if stops is None:
-    #     return {}
-    # print ("stops")
-    # printt (json.dumps(stops, indent=4))
-    #
-    # name = json.loads(stops[0])["name"]
-    # if name is None:
-    #     return {}
-    # print ("Name: ")
-    # print (name)
+    references = data.get("references")
+    if references is None:
+        return {}
+
+    stops = references['stops']
+    if stops is None:
+        return {}
+
+    name = stops[0]['name']
+    if name is None:
+        return {}
+    print ("Name: ")
+    print (name)
 
     entry = data.get('entry')
     if entry is None:
