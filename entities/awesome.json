@@ -1,0 +1,16 @@
+{
+  "id": "b75217be-3854-4a39-943e-0e2ce6869892",
+  "name": "awesome",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "awesome",
+      "synonyms": [
+        "awesome",
+        "awesome people"
+      ]
+    }
+  ],
+  "isEnum": false,
+  "automatedExpansion": false
+}

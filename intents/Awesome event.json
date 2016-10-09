@@ -1,0 +1,57 @@
+{
+  "id": "991820dd-134b-4f2d-b72d-2bf9e1a30477",
+  "name": "Awesome event",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "id": "0b492f41-d3c1-47be-9e74-a8eeae774056",
+      "data": [
+        {
+          "text": "What",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "awesome",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        },
+        {
+          "text": " event is "
+        },
+        {
+          "text": "today",
+          "alias": "date",
+          "meta": "@sys.date",
+          "userDefined": true
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@sys.date",
+          "name": "date",
+          "value": "$date"
+        }
+      ],
+      "speech": "MHacks 8 at the Masonic Temple!"
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "fallbackIntent": false
+}
