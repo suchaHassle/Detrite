@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "2",
+        "speech": "3",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -66,22 +66,23 @@ def processRequest(req):
         # return res
 
 def makeWebhookResultBus(datum):
-    data = datum.get("data")
-    if data is None:
-        return {}
-
-    references = data.get("references")
-    if references is None:
-        return {}
-
-
-    stops = references.get("stops")
-    if stops is None:
-        return {}
-
-    name = stops.get("name")
-    if name is None:
-        return {}
+    currentTime = datum.get("currentTime")
+    speech = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(currentTime))
+    # data = datum.get("data")
+    # if data is None:
+    #     return {}
+    #
+    # references = data.get("references")
+    # if references is None:
+    #     return {}
+    #
+    # stops = references.get("stops")
+    # if stops is None:
+    #     return {}
+    #
+    # name = stops.get("name")
+    # if name is None:
+    #     return {}
 
     # entry = data.get('entry')
     # if entry is None:
@@ -109,7 +110,7 @@ def makeWebhookResultBus(datum):
     #newTime = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(arrivalTime))
     # print(json.dumps(item, indent=4))
 
-    speech = "Bus stop: " + name #+ ". Next bus is " + serviceId + " and it arrives at "# + newtime
+    # speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
 
     return {
         "speech": speech,
