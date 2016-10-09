@@ -41,14 +41,7 @@ def processRequest(req):
         data = json.loads(result)
         res = makeWebhookResultWeather(data)
         return res
-    elif req.get("result").get("action") == "test1":
-        return {
-        "speech": "1",
-        "displayText": "asdf",
-        # "data": data,
-        # "contextOut": [],
-        "source": "MH8-Hackbot"
-        }
+
     elif req.get("result").get("action") == "busRoutes":
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
         apiKey = ".json?key=MHACKS8"
