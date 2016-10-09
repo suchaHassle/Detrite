@@ -3,6 +3,7 @@
 import urllib
 import json
 import os
+import time
 
 from flask import Flask
 from flask import request
@@ -29,6 +30,7 @@ def webhook():
 
 
 def processRequest(req):
+    ######## YAHOOOOO WEATHER
     if req.get("result").get("action") == "yahooWeatherForecast":
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
         yql_query = makeYqlQuery(req)
@@ -38,9 +40,61 @@ def processRequest(req):
         result = urllib.urlopen(yql_url).read()
         # result = urllib.urlopen("https://jsonplaceholder.typicode.com/photos/1");
         data = json.loads(result)
-        res = makeWebhookResult(data)
+        res = makeWebhookResultWeather(data)
+        return res
+    ####### DETROIT BUS API HANDLING
+    elif req.get("result").get("action") == "busRoutes":
+        baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
+        apiKey = "MHACKS8"
+        bus_url = baseurl + req.get("result").get("parameters").get("bus-id") + apiKey
+        result = urllib.urlopen(bus_url).read()
+        data = json.loads(result)
+        res = makeWebhookResultBus(data)
         return res
 
+def makeWebhooResultsBus(datum):
+    data = datum.get('data')
+    if data is None:
+        return {}
+
+    references = data.get('references')
+    if references is None:
+        return {}
+
+    stops = references.get('stops')
+    if stops is None:
+        return {}
+
+    name = stops.get('name')
+    if name is None:
+        return {}
+
+    scheduleStopTimes = data.get('scheduleStopTimes')
+    if scheduleStopTimes is None:
+        return{}
+
+    serviceId = scheduleStopTimes.get('serviceId')
+    if serviceId is None:
+        return{}
+
+    arrivalTime = scheduleStopTimes.get('arrivalTime')
+    if arrivalTime is None:
+        return{}
+    newTime = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(arrivalTime))
+    # print(json.dumps(item, indent=4))
+
+    speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
+    # speech = "literally troll"
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "ddot-beta"
+    }
 #########################################
 ##        YAHOO API FORMATTING
 #########################################
@@ -54,7 +108,7 @@ def makeYqlQuery(req):
     return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 
-def makeWebhookResult(data):
+def makeWebhookResultWeather(data):
     query = data.get('query')
     if query is None:
         return {}
