@@ -97,8 +97,7 @@ def makeWebhookResultBus(datum):
     print ("-------------THIRD BREAK POINT----------------")
     newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
     # print(json.dumps(serviceId, indent=4))
-    #
-    speech = "Your bus stop is at " + name + ". Next bus is " + serviceId + " and it arrives at " + newTime
+    speech = "Your bus stop is at " + name + ". Next bus is " + serviceId + " and it arrives at " + newTime + "."
     # speech = serviceId
     return {
         "speech": speech,
