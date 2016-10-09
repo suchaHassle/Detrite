@@ -59,10 +59,11 @@ def processRequest(req):
         return res
 
 def makeWebhookResultBus(datum):
+    print ("-----------------------------1--------------")
     data = datum.get("data")
     if data is None:
         return {}
-
+    print ("-----------------------------2--------------")
     # references = data.get("references")
     # if references is None:
     #     return {}
@@ -82,18 +83,18 @@ def makeWebhookResultBus(datum):
     entry = data.get('entry')
     if entry is None:
         return {}
-
+    print ("asdffff-----------------------------------")
     stopRouteSchedules = entry.get('stopRouteSchedules')
     if stopRouteSchedules is None:
         return{}
-
+    print ("---------------------------rrrrrrrrrrrrre")
     stopRouteDirectionSchedules = stopRouteSchedules.get('stopRouteDirectionSchedules')
     if stopRouteDirectionSchedules is None:
         return{}
     print ("--------------FIRST BREAK POINT---------------")
     scheduleStopTimes = stopRouteDirectionSchedules.get('scheduleStopTimes')
     thing = json.loads (scheduleStopTimes)
-    PRINT ("--------------BREAK POINT 1.5-----------------")
+    print ("--------------BREAK POINT 1.5-----------------")
     serviceId = thing[0]['serviceId']
     print ("-------------SECOND BREAK POINT----------------")
     # if scheduleStopTimes is None:
