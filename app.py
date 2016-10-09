@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "1",
+        "speech": "2",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -59,23 +59,21 @@ def processRequest(req):
         return res
 
 def makeWebhookResultBus(datum):
-    currentTime = datum.get("currentTime")
-    speech = time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime(currentTime/1000))
-    # data = datum.get("data")
-    # if data is None:
-    #     return {}
-    #
-    # references = data.get("references")
-    # if references is None:
-    #     return {}
-    #
-    # stops = references.get("stops")
-    # if stops is None:
-    #     return {}
-    #
-    # name = stops.get("name")
-    # if name is None:
-    #     return {}
+    data = datum.get("data")
+    if data is None:
+        return {}
+
+    references = data.get("references")
+    if references is None:
+        return {}
+
+    stops = references.get("stops")
+    if stops is None:
+        return {}
+
+    name = stops.get("name")
+    if name is None:
+        return {}
 
     # entry = data.get('entry')
     # if entry is None:
@@ -100,13 +98,13 @@ def makeWebhookResultBus(datum):
     # arrivalTime = scheduleStopTimes.get('arrivalTime')
     # if arrivalTime is None:
     #     return{}
-    #newTime = time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(arrivalTime))
+    #newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
     # print(json.dumps(item, indent=4))
 
     # speech = "Bus stop: " + name + ". Next bus is " + serviceId + " and it arrives at " + newtime
 
     return {
-        "speech": speech,
+        "speech": name,
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
