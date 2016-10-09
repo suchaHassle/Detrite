@@ -43,7 +43,7 @@ def processRequest(req):
         return res
     elif req.get("result").get("action") == "test1":
         return {
-        "speech": "1",
+        "speech": "2",
         "displayText": "asdf",
         # "data": data,
         # "contextOut": [],
@@ -55,7 +55,7 @@ def processRequest(req):
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
         result = urllib.urlopen(bus_url).read()
         data = json.loads(result)
-        res = makeWebhookResultBus(datum)
+        # res = makeWebhookResultBus(datum)
         return {
         "speech": "TESTbus",
         "displayText": "testbus",
@@ -117,7 +117,7 @@ def makeWebhookResultBus(datum):
         "displayText": "for the love of god",
         # "data": data,
         # "contextOut": [],
-        "source": "ddot-beta"
+        "source": "MH8-Hackbot"
     }
 #########################################
 ##        YAHOO API FORMATTING
