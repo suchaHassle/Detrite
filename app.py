@@ -30,13 +30,6 @@ def webhook():
 
 
 def processRequest(req):
-    return {
-        "speech": "test",
-        "displayText": "test",
-        # "data": data,
-        # "contextOut": [],
-        "source": "MH8-Hackbot"
-    }
     ######## YAHOOOOO WEATHER
     if req.get("result").get("action") == "yahooWeatherForecast":
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
@@ -51,28 +44,13 @@ def processRequest(req):
         return res
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
-        return {
-            "speech": "test",
-            "displayText": "test",
-            # "data": data,
-            # "contextOut": [],
-            "source": "MH8-Hackbot"
-        }
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
         apiKey = ".json?key=MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
         result = urllib.urlopen(bus_url).read()
         data = json.loads(result)
-        res = makeWebhookResultBus(data)
+        res = makeWebhookResultBus(datum)
         return res
-    else
-        return {
-            "speech": "Please ask for the weather or a bus stop id only!",
-            "displayText": "Please ask for the weather or a bus stop id only!",
-            # "data": data,
-            # "contextOut": [],
-            "source": "MH8-Hackbot"
-        }
 
 def makeWebhookResultBus(datum):
     data = datum.get('data')
