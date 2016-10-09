@@ -1,0 +1,40 @@
+{
+  "id": "62c3cb42-ef4c-4007-8eea-2dee1bf1715a",
+  "name": "test @sys.geo-city:geo-city ",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "id": "18e4b3b4-3cd7-402f-842e-351045522b42",
+      "data": [
+        {
+          "text": "test @sys.any"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    },
+    {
+      "id": "48ca9d3f-778e-432a-8e13-df78e954b95f",
+      "data": [
+        {
+          "text": "test"
+        }
+      ],
+      "isTemplate": true,
+      "count": 0
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "test1",
+      "affectedContexts": [],
+      "parameters": [],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "fallbackIntent": false
+}
