@@ -45,7 +45,7 @@ def processRequest(req):
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
-        apiKey = "MHACKS8"
+        apiKey = ".json?key=MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
         return {
             "speech": "test",
