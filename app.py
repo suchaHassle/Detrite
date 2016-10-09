@@ -47,6 +47,13 @@ def processRequest(req):
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
         apiKey = "MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("bus-id") + apiKey
+        return {
+            "speech": bus_url,
+            "displayText": bus_url,
+            # "data": data,
+            # "contextOut": [],
+            "source": "apiai-weather-webhook-sample"
+        }
         result = urllib.urlopen(bus_url).read()
         data = json.loads(result)
         res = makeWebhookResultBus(data)
@@ -56,7 +63,7 @@ def makeWebhooResultsBus(datum):
     data = datum.get('data')
     if data is None:
         return {}
- 
+
     references = data.get('references')
     if references is None:
         return {}
