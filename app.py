@@ -56,7 +56,7 @@ def makeWebhooResultsBus(datum):
     data = datum.get('data')
     if data is None:
         return {}
-
+ 
     references = data.get('references')
     if references is None:
         return {}
