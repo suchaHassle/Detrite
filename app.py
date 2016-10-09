@@ -42,6 +42,17 @@ def processRequest(req):
         data = json.loads(result)
         res = makeWebhookResultWeather(data)
         return res
+    elif req.get("result").get("action") == "test1":
+        baseurl = "https://query.yahooapis.com/v1/public/yql?"
+        yql_query = makeYqlQuery(req)
+        if yql_query is None:
+            return {}
+        yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
+        result = urllib.urlopen(yql_url).read()
+        # result = urllib.urlopen("https://jsonplaceholder.typicode.com/photos/1");
+        data = json.loads(result)
+        res = makeWebhookResultWeather(data)
+        return res
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
@@ -140,8 +151,8 @@ def makeWebhookResultWeather(data):
     print(speech)
 
     return {
-        "speech": "Test",
-        "displayText": "Test",
+        "speech": "speech",
+        "displayText": "speech",
         # "data": data,
         # "contextOut": [],
         "source": "MH8-Hackbot"
