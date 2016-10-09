@@ -94,7 +94,9 @@ def makeWebhookResultBus(datum):
     print ("--------------BREAK POINT 1.5-----------------")
     serviceId = scheduleStopTimes[0]["serviceId"]
     print ("-------------SECOND BREAK POINT----------------")
-    arrivalTime = scheduleStopTimes[0]
+    arrivalTime = scheduleStopTimes[0][""]
+    print (arrivalTime)
+    print ("-------------THIRD BREAK POINT----------------")
     newTime = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(arrivalTime/1000))
     # print(json.dumps(serviceId, indent=4))
     #
