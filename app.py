@@ -38,7 +38,6 @@ def processRequest(req):
             return {}
         yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
         result = urllib.urlopen(yql_url).read()
-        # result = urllib.urlopen("https://jsonplaceholder.typicode.com/photos/1");
         data = json.loads(result)
         res = makeWebhookResultWeather(data)
         return res
@@ -49,10 +48,15 @@ def processRequest(req):
             return {}
         yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
         result = urllib.urlopen(yql_url).read()
-        # result = urllib.urlopen("https://jsonplaceholder.typicode.com/photos/1");
         data = json.loads(result)
         res = makeWebhookResultWeather(data)
-        return res
+        return {
+            "speech": "TEST",
+            "displayText": "test",
+            # "data": data,
+            # "contextOut": [],
+            "source": "MH8-Hackbot"
+        }
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
@@ -151,8 +155,8 @@ def makeWebhookResultWeather(data):
     print(speech)
 
     return {
-        "speech": "speech",
-        "displayText": "speech",
+        "speech": speech,
+        "displayText": speech,
         # "data": data,
         # "contextOut": [],
         "source": "MH8-Hackbot"
