@@ -66,7 +66,6 @@ def makeWebhookResultBus(datum):
     references = data.get("references")
     if references is None:
         return {}
-    print (references)
     stops = json.loads("stops")
     if stops is None:
         return {}
