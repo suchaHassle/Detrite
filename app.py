@@ -59,6 +59,13 @@ def processRequest(req):
         res = makeWebhookResultWeather(data)
     ####### DETROIT BUS API HANDLING
     elif req.get("result").get("action") == "busRoutes":
+        return {
+        "speech": "TESTbus",
+        "displayText": "testbus",
+        # "data": data,
+        # "contextOut": [],
+        "source": "MH8-Hackbot"
+        }
         baseurl = "http://ddot-beta.herokuapp.com/api/api/where/schedule-for-stop/DDOT_"
         apiKey = ".json?key=MHACKS8"
         bus_url = baseurl + req.get("result").get("parameters").get("stop-id") + apiKey
