@@ -91,9 +91,8 @@ def makeWebhookResultBus(datum):
     stopRouteDirectionSchedules = stopRouteSchedules[0]['stopRouteDirectionSchedules']
     print ("--------------FIRST BREAK POINT---------------")
     #print (stopRouteDirectionSchedules)
-    thing = stopRouteDirectionSchedules[0]['scheduleStopTimes']
+    scheduleStopTimes = stopRouteDirectionSchedules[0]['scheduleStopTimes']
     print ("--------------BREAK POINT 1.5-----------------")
-    scheduleStopTimes = thing[0]
     serviceId = scheduleStopTimes[0]["serviceId"]
     print ("-------------SECOND BREAK POINT----------------")
     # if scheduleStopTimes is None:
