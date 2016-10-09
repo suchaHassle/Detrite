@@ -7,7 +7,7 @@ This is a webhook implementation that gets Api.ai classification JSON (i.e. a JS
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 # What does the service do?
-It's a scalable information fulfillment service that uses both local and public API's to provide a central hub for residents to easily access updates on the go.
+It's a scalable information fulfillment service that uses both local and public API's to provide a central hub for residents of Detroit to easily access updates on the go.
 The services takes inputs from Facebook Messenger and runs it through native and customized scripts on API.AI to provide dynamic responses tailor to suit your inquiries.
 
 # Features
