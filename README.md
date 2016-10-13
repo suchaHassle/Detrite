@@ -1,4 +1,4 @@
-![alt tag](https://j.gifs.com/RgLN1R.gif)
+![alt tag](http://i.imgur.com/ULwXmPA.gifv)
 
 # Weather and Bus Info Facebook Messaging Bot With API.AI.
 
