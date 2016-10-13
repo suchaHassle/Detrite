@@ -1,8 +1,8 @@
-![alt tag](http://i.imgur.com/tV2harG.gif)
-
 # Weather and Bus Info Facebook Messaging Bot With API.AI.
 
 This is a webhook implementation that gets Api.ai classification JSON (i.e. a JSON output of Api.ai /query endpoint) and returns a fulfillment response.
+
+![alt tag](http://i.imgur.com/tV2harG.gif)
 
 
 # Deploy to:
